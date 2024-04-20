@@ -20,19 +20,19 @@ else:
     print("Lütfen var olan işlemlerden birini seçiniz :(") # 1 ya da 2 harici giriş yapılırsa programı sonlandırma
     
 sec=int(input("Hangi kitabın bilgilerini öğrenmek istiyorsunuz?"))
-if sec%3==1:
+if sec==1:
     ilk_satir = (secim - 1) * 16 + 1  
     for i in range(ilk_satir, ilk_satir + 5):
         satir = linecache.getline(dosya, i)
         print(satir.strip())
 
-if sec%3==2:
+if sec==2:
     ilk_satir = (secim - 1) * 16 + 1+5 
     for i in range(ilk_satir, ilk_satir + 5):
         satir = linecache.getline(dosya, i)
         print(satir.strip())
 
-if sec%3==0:
+if sec==3:
     ilk_satir = (secim - 1) * 16 + 1+10 
     for i in range(ilk_satir, ilk_satir + 5):
         satir = linecache.getline(dosya, i)
