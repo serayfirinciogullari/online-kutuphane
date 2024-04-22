@@ -1,39 +1,39 @@
 import tur_sec
 import personel_girisi
-print("\n")
+import linecache
+
+dosya="kitap_bilgileri.txt"
 print("Giriş yapacak kullanıcıyı seçiniz")
-kullanici = int(input("1-Personel Giriş\n2-Kullanıcı Giriş ")) #kullanıcı tipi belirleme
+kullanici = int(input("1-Personel Giriş\n2-Kullanıcı Giriş\n3-Yönetici Giriş ")) #kullanıcı tipi belirleme
 
 if kullanici == 1: # admin girişi
     sifre = input("Şifre giriniz:")
     personel_girisi.personel_girisi(sifre)
+    
 
 
 elif kullanici == 2: # kullanıcı girişi
 
-    print("1-Felsefe\n2-Bilim\n3-Hukuk\n4-Sağlık\n5-Kurgu")
-    secim  = int(input("Hangi tür kitabın bilgilerine erişim sağlamak istiyorsunuz?"))
-    print("\n")
-    tur_sec.tur_sec(secim)
+    print("\nFelsefe\nBilim\nHukuk\nSağlık\nKurgu")
+
+    kategori = input("Lütfen bir kategori seçin ").upper()
+
+    if kategori == "FELSEFE":
+        tur_sec.tur_sec(1)
+    elif kategori == "BILIM":
+        tur_sec.tur_sec(2)
+    elif kategori == "HUKUK":
+        tur_sec.tur_sec(3)
+    elif kategori == "SAĞLIK":
+        tur_sec.tur_sec(4)
+    elif kategori == "KURGU":
+        tur_sec.tur_sec(5)
+    else:
+        print("Geçersiz kategori girişi.")
+
 
 else:
-    print("Lütfen var olan işlemlerden birini seçiniz :(") # 1 ya da 2 harici giriş yapılırsa programı sonlandırma
-    
-sec=int(input("Hangi kitabın bilgilerini öğrenmek istiyorsunuz?"))
-if sec==1:
-    ilk_satir = (secim - 1) * 16 + 1  
-    for i in range(ilk_satir, ilk_satir + 5):
-        satir = linecache.getline(dosya, i)
-        print(satir.strip())
+    print("Lütfen var olan işlemlerden birini seçiniz :(") 
 
-if sec==2:
-    ilk_satir = (secim - 1) * 16 + 1+5 
-    for i in range(ilk_satir, ilk_satir + 5):
-        satir = linecache.getline(dosya, i)
-        print(satir.strip())
 
-if sec==3:
-    ilk_satir = (secim - 1) * 16 + 1+10 
-    for i in range(ilk_satir, ilk_satir + 5):
-        satir = linecache.getline(dosya, i)
-        print(satir.strip())
+
