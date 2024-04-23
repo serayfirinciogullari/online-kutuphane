@@ -1,4 +1,5 @@
 import kitap_sil
+import kitap_ekle
 
 def personel_girisi(sifre):
     dosya_sifre = open("admin_sifre.txt", "r")  # Metin dosyasında tutulan şifreyi okuyup dosya_sifre değişkeninde tutat
@@ -29,19 +30,8 @@ def personel_girisi(sifre):
                         break
 
         elif islem == 2:  # Kitap ekleme bloğu
-            isim = input("Eklemek istediğiniz kitabın ismini giriniz: ") + "\n"
-            tur = input("Eklemek istediğiniz kitabın türünü giriniz: ") + "\n"
-            yayinevi = input("Eklemek istediğiniz kitabın yayınevini giriniz: ") + "\n"
-            yayin_yili = input("Eklemek istediğiniz kitabın yayın yılını giriniz: ") + "\n"
-            isbn = input("Eklemek istediğiniz kitabın ISBN numarasını giriniz: ") + "\n"
+            kitap_ekle()
 
-            with open("kitap_bilgileri.txt", "a+", encoding="utf-8") as dosya:
-                dosya.write(isim)
-                dosya.write(tur)
-                dosya.write(yayinevi)
-                dosya.write(yayin_yili)
-                dosya.write(isbn)
-                print("Bilgiler başarıyla eklendi")
 
         elif islem == 3:  # Kitap silme bloğu
             silinen_kitap = input("Hangi kitabı silmek istiyorsunuz? ")
@@ -73,22 +63,10 @@ def personel_girisi(sifre):
                                 print("Şifreniz güncellendi ^^")
                                 break
                 elif islem == 2:  # Kitap ekleme bloğu
-                    isim = input("Eklemek istediğiniz kitabın ismini giriniz: ") + "\n"
-                    tur = input("Eklemek istediğiniz kitabın türünü giriniz: ") + "\n"
-                    yayinevi = input("Eklemek istediğiniz kitabın yayınevini giriniz: ") + "\n"
-                    yayin_yili = input("Eklemek istediğiniz kitabın yayın yılını giriniz: ") + "\n"
-                    isbn = input("Eklemek istediğiniz kitabın ISBN numarasını giriniz: ") + "\n"
-
-                    with open("kitap_bilgileri.txt", "a+", encoding="utf-8") as dosya:
-                        dosya.write(isim)
-                        dosya.write(tur)
-                        dosya.write(yayinevi)
-                        dosya.write(yayin_yili)
-                        dosya.write(isbn)
-                        print("Bilgiler başarıyla eklendi")
+                    kitap_ekle()
 
                 elif islem == 3:  # Kitap silme bloğu
-                    silinen_kitap = input("Hangi kitabı silmek istiyorsunuz? ")
+                    silinen_kitap = input("Hangi kitabı silmek istiyorsunuz? ").lower
                     kitap_sil.kitap_sil(silinen_kitap, "kitap_bilgileri.txt")
 
             else:  # Şifreler uyuşmuyorsa
