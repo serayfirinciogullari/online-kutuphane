@@ -1,7 +1,5 @@
 import personel_girisi
-from kitap_bilgisi import kitap_bilgisi
-from tur_sec import tur_sec
-from kitap_iade_odunc import kitap_odunc_alma, kitap_iade
+import kullanici_girisi
 
 
 def main():
@@ -19,7 +17,7 @@ def main():
         if secim == 1:
            personel_girisi.personel_girisi()
         elif secim == 2:
-            kitap_bilgisi()
+            kullanici_girisi.kitap_bilgisi()
         elif secim == 3:
             kategori_numarasi = int(input("""
 1. Kişisel Gelişim
@@ -29,11 +27,11 @@ def main():
 5.Tarih                                                                                    
                                     
 Kategori numarası giriniz (1-5): """))
-            tur_sec(kategori_numarasi)
+            kullanici_girisi.tur_sec(kategori_numarasi)
         elif secim == 4:
-            kitap_odunc_alma()
+            kullanici_girisi.kitap_odunc_alma()
         elif secim == 5:
-            kitap_iade()
+            kullanici_girisi.kitap_iade()
         elif secim == 0:
             print("Çıkış yapılıyor...")
             break
