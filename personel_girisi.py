@@ -68,7 +68,7 @@ def personel_girisi():
         print("Oturum açıldı ^^")
 
         while True:
-            print("1-Şifre değiştirme\n2-Kitap ekleme\n3-Kitap silme\n4-Kitap durumu güncelleme\n0-Ana menüye geri dönme")
+            print("1-Şifre değiştirme\n2-Kitap ekleme\n3-Kitap silme\n4-Kitap durumu güncelleme\n0-Ana menüye geri")
 
             islem = int(input("Yapmak istediğiniz işlemi giriniz:"))
             if islem == 1:  # Şifre değiştirme bloğu
@@ -90,7 +90,7 @@ def personel_girisi():
 
             elif islem == 3:  # Kitap silme bloğu
                 silinen_kitap = input("Hangi kitabı silmek istiyorsunuz? ")
-                kitap_sil.kitap_sil(silinen_kitap, "kitap_bilgileri.txt")
+                kitap_sil(silinen_kitap, "kitap_bilgileri.txt")
         
             elif islem == 4:
                     #serayın kitap bilgileri güncelleme bloğu
