@@ -46,6 +46,53 @@ def kitap_ekle():
         dosya.write(tur)
         print("Bilgiler başarıyla eklendi")
 
+def kitap_guncelleme():
+    kitap_kontrol = False
+    while not kitap_kontrol:
+        kitap_ismi = input("Bilgileri güncellenecek kitabın ismini giriniz: ").strip().upper()
+        sayac = 0
+        with open("kitap_bilgileri.txt", "r+") as dosya:
+            while True:
+                satir = dosya.readline()
+                sayac += 1
+                if satir.strip() == kitap_ismi:
+                    print("Girdiğiniz kitap kütüphane arşivinde mevcuttur.")
+                    kitap_kontrol = True
+                    while True:
+                        secim = int(input("""
+1.Kitabın ismi
+2.Kitabın ISBN numarası
+3.Kitabın yazarı
+4.Kitabın yayınevi
+5.Kitabın yayın yılı
+6.Kitabın stok adedi
+7.Kitabın Türü
+\nKitabın değiştirmek istediğiniz bilgisinin numarasını giriniz:"""))
+                        if secim >= 1 and secim <= 7:
+                            break
+                        else:
+                            print("Lütfen var olan işlemlerdne birini giriniz")
+                    for i in range(1, 8):
+                        karakter = dosya.tell()
+                        dosya.truncate()
+                        satir = dosya.readline()
+                        sayac += 1
+                        if i == secim - 1:
+                            guncel_kitap_bilgisi = input("Kitabın değiştirilecek bilgisini giriniz:")
+                            kitap_guncelleme = input("Kitap bilgilerini güncellemk için e/E çıkış yapmak için herhangi bir harf giriniz: ")
+                            if kitap_guncelleme.lower() == "e":
+                                dosya.seek(karakter)
+                                dosya.write(guncel_kitap_bilgisi)
+                                print("Kitap bilgileri başarıyla değiştirildi ^^")
+                            else:
+                                print("Çıkış yapılıyor")
+                if not satir:
+                    break
+            if kitap_kontrol:
+                break
+        if not kitap_kontrol:
+            print("Girdiğiniz kitap kütüphane arşivinde bulunmamaktadır. Lütfen tekrar deneyiniz.")
+
 
 def personel_girisi():
     sifre = input("Şifre giriniz:")
@@ -93,8 +140,7 @@ def personel_girisi():
                 kitap_sil(silinen_kitap, "kitap_bilgileri.txt")
         
             elif islem == 4:
-                    #serayın kitap bilgileri güncelleme bloğu
-                pass
+                kitap_guncelleme()
             elif islem == 0:
                 break
             else:
