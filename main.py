@@ -1,7 +1,5 @@
-from kitap_ekle import kitap_ekle
-from kitap_sil import kitap_sil
+import personel_girisi
 from kitap_bilgisi import kitap_bilgisi
-from personel_girisi import personel_girisi
 from tur_sec import tur_sec
 from kitap_iade_odunc import kitap_odunc_alma, kitap_iade
 
@@ -16,24 +14,10 @@ def main():
         print("5. Kitap İade Et")
         print("0. Çıkış Yap")
 
-        secim = int(input("Lütfen bir işlem seçiniz: "))
+        secim = int(input("Lütfen bir işlem seçiniz:"))
 
         if secim == 1:
-            sifre = input("Şifre giriniz: ")
-            if personel_girisi(sifre):
-                while True:
-                    print("1. Kitap Ekle")
-                    print("2. Kitap Sil")
-                    print("3. Geri Dön")
-                    personel_secim = int(input("Seçim yapınız: "))
-                    if personel_secim == 1:
-                        kitap_ekle()
-                    elif personel_secim == 2:
-                        kitap_sil()
-                    elif personel_secim == 3:
-                        break
-                    else:
-                        print("Geçersiz seçim, lütfen tekrar deneyin.")
+           personel_girisi.personel_girisi()
         elif secim == 2:
             kitap_bilgisi()
         elif secim == 3:
