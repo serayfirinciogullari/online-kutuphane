@@ -74,7 +74,6 @@ def kitap_guncelleme():
                             print("Lütfen var olan işlemlerdne birini giriniz")
                     for i in range(1, 8):
                         karakter = dosya.tell()
-                        dosya.truncate()
                         satir = dosya.readline()
                         sayac += 1
                         if i == secim - 1:
@@ -115,7 +114,7 @@ def personel_girisi():
         print("Oturum açıldı ^^")
 
         while True:
-            print("1-Şifre değiştirme\n2-Kitap ekleme\n3-Kitap silme\n4-Kitap durumu güncelleme\n0-Ana menüye geri")
+            print("1-Şifre değiştirme\n2-Kitap ekleme\n3-Kitap silme\n4-Kitap bilgilerini güncelleme\n0-Ana menüye geri")
 
             islem = int(input("Yapmak istediğiniz işlemi giriniz:"))
             if islem == 1:  # Şifre değiştirme bloğu
