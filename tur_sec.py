@@ -24,7 +24,7 @@ def tur_sec(secim):
                     if sayac == (14 * (secim - 1)) + 1: #kullanıcı kaçıncı kitabı seçerse o kitabın ilk bilgisinin bulunduğu satırı veren işlem
                         for i in range(1, 9):
                             if i == 1 or i == 8:
-                                print(satir.strip()) 
+                                print(satir.strip().capitalize()) 
                             satir = dosya.readline()
                             sayac += 1
                     sayac += 1
