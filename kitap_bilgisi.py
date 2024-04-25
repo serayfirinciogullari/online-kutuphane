@@ -12,7 +12,7 @@ def kitap_bilgisi():
                     kitap_kontrol = True
                     for i in range(1, 8):
                         if i == 1:
-                            print("Kitabın ismi:",satir.strip())
+                            print("Kitabın ismi:",satir.strip().capitalize())
                         elif i == 2:
                             print("Kitabın ISBN numarası:",satir.strip())
                         elif i == 3:
