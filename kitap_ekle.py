@@ -8,7 +8,7 @@ def kitap_ekle():
     stok_adedi=input("Eklemek istediğiniz kitabın stok adedini giriniz: ") + "\n"
     tur = input("Eklemek istediğiniz kitabın türünü giriniz: ") + "\n"
 
-    with open("kitap_bilgileri.txt", "a+", encoding="utf-8") as dosya:
+    with open("kitap_bilgileri.txt", "a", encoding="utf-8") as dosya:
         dosya.write(isim)
         dosya.write(isbn)
         dosya.write(yazar)
@@ -16,4 +16,5 @@ def kitap_ekle():
         dosya.write(yayin_yili)
         dosya.write(stok_adedi)
         dosya.write(tur)
+        dosya.write('\n')
         print("Bilgiler başarıyla eklendi")
